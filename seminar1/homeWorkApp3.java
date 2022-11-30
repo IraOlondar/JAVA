@@ -40,6 +40,7 @@ public class homeWorkApp3 {
             }
             
         } else {
+            //Выводим ошибку
             print("error", "Ошибка ввода, пустое значение");
         }
     }
@@ -47,8 +48,7 @@ public class homeWorkApp3 {
     public static String[] riad(String str) {
         String[] result = {"0", "-E", "0"}; 
 
-        str = str.replace(" ", "");
-        str = str.replace("=", "");
+        str = str.replace(" ", "").replace("=", "");
         
         // Шаблон регулярного выражения
         String pattern = "([-]?[0-9]+[.,]?[0-9]*)([-+*\\/^])([-]?[0-9]+[.,]?[0-9]*)";
