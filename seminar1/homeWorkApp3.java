@@ -1,5 +1,9 @@
 package seminar1;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -23,14 +27,20 @@ public class homeWorkApp3 {
                 String recCalc = calc(a, inputString[1], b);
       
                 //Выводим результат вычисления
-                System.out.printf("%s %s %s = %s", a, inputString[1], b, recCalc);
+                String type = "";
+                if (recCalc != "-E") {
+                    type = "info";
+                } else {
+                    type = "error";
+                }
+                print(type, (a + " " + inputString[1] + " " + b + " = " + recCalc));
             } else {
                 //Выводим ошибку
-                System.out.println("Ошибка ввода, некоректные данные");
+                print("error", "Ошибка ввода, некоректные данные");
             }
             
         } else {
-            System.out.println("Ошибка ввода, пустое значение");
+            print("error", "Ошибка ввода, пустое значение");
         }
     }
 
@@ -86,8 +96,30 @@ public class homeWorkApp3 {
         }
     }
     
-    //Вывод результата на экран
-    public static void print (String res) { 
-        
+    /** 
+     * Вывод в консоль
+     * @param type - тип события
+     * @param txt - текст события
+     * @see homeWorkApp3#print()
+     */
+    public static void print (String type, String txt) { 
+        System.out.println(txt);
+        log(type, txt);
     }
+
+    /** 
+     * Логтрование
+     * @param type - тип события
+     * @param txt - текст события
+     * @see homeWorkApp3#plog()
+     */
+    public static void log(String type, String txt) {
+        String timeStamp = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss").format(Calendar.getInstance().getTime());
+        try (FileWriter fw = new FileWriter("seminar1/log.txt", true)) {
+            fw.write(timeStamp + " --["+ type +"]-- " + txt + "\n");
+            fw.flush();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+     }
 }
