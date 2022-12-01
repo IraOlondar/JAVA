@@ -15,7 +15,7 @@ public class homeWorkApp2 {
       
       int[] sortArray = SortBubble(intArr);
       System.out.println("Отсортированный массив:");
-      Print(sortArray);;
+      Print(sortArray);
    }
 
    public static int[] GenArray() {
@@ -47,8 +47,7 @@ public class homeWorkApp2 {
       return arr;
    }
 
-   public static int rnd(int min, int max)
-   {
+   public static int rnd(int min, int max) {
       max -= min;
       return (int) (Math.random() * ++max) + min;
    }
