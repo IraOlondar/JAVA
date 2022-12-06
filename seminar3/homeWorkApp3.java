@@ -7,9 +7,7 @@ import java.util.List;
     public class homeWorkApp3 {
     public static void main(String[] args) {
         List<Integer> intArr = GenArray();
-        
-        System.out.println(64 % 2);
-
+ 
         System.out.println("Сгенерированный массив:");
         Print(intArr);
         System.out.println();
