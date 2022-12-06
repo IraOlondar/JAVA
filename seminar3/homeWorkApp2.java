@@ -8,8 +8,6 @@ import org.json.simple.JSONArray;
     public class homeWorkApp2 {
     public static void main(String[] args) {
         List<Integer> intArr = JSONArray.GenArray();
-        
-        System.out.println(64 % 2);
 
         System.out.println("Сгенерированный массив:");
         Print(intArr);
