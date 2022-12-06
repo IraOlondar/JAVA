@@ -5,8 +5,7 @@ import java.util.List;
 
 public class homeWorkApp1 {
    public static void main(String[] args) {
-      List<Integer> intArr = new ArrayList<>();
-      intArr = GenArray();
+      List<Integer> intArr = GenArray();
       
       System.out.println("Сгенерированный массив:");
       Print(intArr);

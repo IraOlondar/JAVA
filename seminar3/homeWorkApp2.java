@@ -1,20 +1,20 @@
 package seminar3;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
     public class homeWorkApp2 {
     public static void main(String[] args) {
         List<Integer> intArr = GenArray();
 
+
         System.out.println("Сгенерированный массив:");
         Print(intArr);
         System.out.println();
         
-        processedAray(intArr);
-        // System.out.println("Обработанный массив:");
-        // Print(resArr);
+        List<Integer> resArr = processedAray(intArr);
+        System.out.println("Обработанный массив:");
+        Print(resArr);
     }
 
     public static List<Integer> GenArray() {
@@ -29,10 +29,15 @@ import java.util.List;
         return array;
      }
 
-    public static void processedAray(List<Integer> a) {
-        System.out.println("Max: " + Collections.max(a));
-        System.out.println("Min: " + Collections.min(a));
-        System.out.println("Min: " + a.stream().mapToDouble(x -> x).average().getAsDouble());
+    public static List<Integer> processedAray(List<Integer> a) {
+        List<Integer> arr = new ArrayList<>();
+        for (Integer i = 0; i < a.size() ; i++) {
+            if (a.get(i) % 2 != 0) {
+                arr.add(a.get(i));
+            }
+        }
+
+        return arr;
     }
   
 
