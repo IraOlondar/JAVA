@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import seminar3.homeWorkApp2;
+
 
 /**
  * A JSON array. JSONObject supports java.util.List interface.
@@ -101,6 +103,18 @@ public class JSONArray extends ArrayList implements List, JSONAware, JSONStreamA
 	public String toString() {
 		return toJSONString();
 	}
+
+    public static List<Integer> GenArray() {
+      int i = 0;
+      int n = 123;
+      List<Integer> array = new ArrayList<>(n);
+    
+      while (i < n) {
+         array.add(i++, homeWorkApp2.rnd(0, 100));
+      }
+    
+      return array;
+    }
 
 	
 		
