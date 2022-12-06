@@ -1,32 +1,38 @@
 package seminar3;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
-
-import org.json.simple.JSONArray;
 
     public class homeWorkApp2 {
     public static void main(String[] args) {
-        List<Integer> intArr = JSONArray.GenArray();
+        List<Integer> intArr = GenArray();
 
         System.out.println("Сгенерированный массив:");
         Print(intArr);
         System.out.println();
         
-        List<Integer> resArr = processedAray(intArr);
-        System.out.println("Обработанный массив:");
-        Print(resArr);
+        processedAray(intArr);
+        // System.out.println("Обработанный массив:");
+        // Print(resArr);
     }
 
-    public static List<Integer> processedAray(List<Integer> a) {
-        List<Integer> arr = new ArrayList<>();
-        for (Integer i = 0; i < a.size() ; i++) {
-            if (a.get(i) % 2 != 0) {
-                arr.add(a.get(i));
-            }
+    public static List<Integer> GenArray() {
+        int i = 0;
+        int n = 123;
+        List<Integer> array = new ArrayList<>(n);
+    
+        while (i < n) {
+           array.add(i++, rnd(0, 100));
         }
+        
+        return array;
+     }
 
-        return arr;
+    public static void processedAray(List<Integer> a) {
+        System.out.println("Max: " + Collections.max(a));
+        System.out.println("Min: " + Collections.min(a));
+        System.out.println("Min: " + a.stream().mapToDouble(x -> x).average().getAsDouble());
     }
   
 
