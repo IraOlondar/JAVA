@@ -27,7 +27,7 @@ import java.util.List;
         }
         
         return array;
-     }
+    }
 
     public static List<Integer> processedAray(List<Integer> a) {
         List<Integer> arr = new ArrayList<>();
