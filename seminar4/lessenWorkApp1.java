@@ -1,37 +1,54 @@
 package seminar4;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.Scanner;
 
 public class lessenWorkApp1 {
     public static void main(String[] args) {
-        int i;
-        var s = System.currentTimeMillis();
-        ArrayList<String> array = new ArrayList<>();
-        for (i = 0; i < 200_000; i++) {
-            array.add("+");
-        }
-        System.out.println("Time add to ArrayList: " + (System.currentTimeMillis() - s));
+        Scanner iScanner = new Scanner(System.in, "Cp866");
+        System.out.printf("Введите данные: ");
+        String input;
+        int index;
+        String value;
+        String[] arr;
+        Boolean condition = false;
+        LinkedList<String> lst = new LinkedList<>();
+        
+        do {
+            input = iScanner.nextLine();
+            if (!input.equals("exit")) { 
+                arr = input.split("~");
 
-        s = System.currentTimeMillis();
-        i = 0;
-        while (i < array.size()) {
-            array.remove(i);
-        }
-        System.out.println("Time remove from ArrayList: " + (System.currentTimeMillis() - s));
+                if (arr.length == 2) {
+                    value = arr[0];
+                    try {
+                        index = Integer.parseInt(arr[1]);
 
-        s = System.currentTimeMillis();
-        LinkedList<String> array1 = new LinkedList<>();
-        for (i = 0; i < 200_000; i++) {
-            array1.add("+");
-        }
-        System.out.println("Time add to LinkedList: " + (System.currentTimeMillis() - s));
-
-        s = System.currentTimeMillis();
-        i = 0;
-        while (i < array1.size()) {
-            array1.remove(i);
-        }
-        System.out.println("Time remove from LinkedList: " + (System.currentTimeMillis() - s));
+                        if (!value.equals("print")) {
+                            if (lst.size() - 1 < index) {
+                                int i = 0;
+                                int x = index - lst.size() + 1;
+                                while (i++ < x) {
+                                    lst.add("");
+                                }
+                            }
+                            lst.set(index, value);
+                        } else {
+                            System.out.println(lst.remove(index));
+                        }
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                        System.out.println("После ~ должно быть число!");
+                    }          
+                } else {   
+                    System.out.println("Где индекс?");
+                }
+ 
+                condition = true;
+                System.out.println("Еще раз");
+            }
+        } while (condition);        
+        iScanner.close();
+        System.out.println("До встречи!");
     }
 }
