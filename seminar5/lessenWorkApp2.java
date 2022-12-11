@@ -25,6 +25,7 @@ public class lessenWorkApp2 {
         brackets.put(']', '[');
     
         Deque<Character> stack = new LinkedList<>();
+        
         for (char c : input.toCharArray()) {
             if (brackets.containsValue(c)) {
                 stack.push(c);
