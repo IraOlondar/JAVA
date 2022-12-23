@@ -11,7 +11,7 @@ public class lessenWorkApp1 {
         depository.addNotebook(new Notebook(depository.getNextId(), "Lenovo", 8, 1024, "windows"));
         depository.addNotebook(new Notebook(depository.getNextId(), "Samsung", 16, 2048, "linux"));
         depository.addNotebook(new Notebook(depository.getNextId(), "Samsung", 4, 256, "windows"));
-        depository.addNotebook(new Notebook(depository.getNextId(), "Samsung", 4, 256, "windows"));
+        depository.addNotebook(new Notebook(depository.getNextId(), "Samsung", 8, 256, "linux"));
         depository.addNotebook(new Notebook(depository.getNextId(), "Acer", 32, 1024, "windows"));
 
         Scanner iScanner = new Scanner(System.in, "Cp866");
